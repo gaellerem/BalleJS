@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('myapp:server');
+var app = require('../api/index');
+var debug = require('debug')('03-express:server');
 var http = require('http');
 
 /**

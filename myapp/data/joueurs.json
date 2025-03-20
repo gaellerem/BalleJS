@@ -1,0 +1,7 @@
+[
+    { "id": 1, "name": "Aude", "username": "admin", "password": "admin", "meilleurScore": 1000 },
+    { "id": 2, "name": "Bob", "username": "bob", "password": "bob", "meilleurScore": 100 },
+    { "id": 3, "name": "Charlie", "username": "charlie", "password": "charlie", "meilleurScore": 500 },
+    { "id": 4, "name": "David", "username": "david", "password": "david", "meilleurScore": 300 },
+    { "id": 5, "name": "Eve", "username": "eve", "password": "eve", "meilleurScore": 200 }
+  ]

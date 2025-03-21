@@ -6,7 +6,6 @@ const startButton = document.querySelector('#start');
 const stopButton = document.querySelector('#stop');
 const clearButton = document.querySelector('#clear');
 const showScores = document.querySelector('#show-scores');
-const popup = document.querySelector('#popup');
 const scoresTableBody = document.querySelector('#score-tableBody');
 const popupOverlay = document.querySelector('#popup-overlay');
 const popupClose = document.querySelector('#popup-close');

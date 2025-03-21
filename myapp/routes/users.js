@@ -1,9 +1,26 @@
 var express = require('express');
+var path = require('path');
 var router = express.Router();
+
+router.use((req, res, next) => {
+  // On récupère le header Authorization
+  const authorization = req.headers["authorization"];
+
+  let authorized = false;
+
+  // Basic auth V1, avec un token uniquement non encodé
+  if (authorization && authorization === "secret") {
+    authorized = true;
+  }
+
+  if (authorized) next(); // On passe à la route suivante
+  else res.status(401).send("Unauthorized"); // Sinon, on renvoie une réponse HTTP 401 (Unauthorized)
+
+});
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.sendFile(path.join(__dirname, '../data', 'joueurs.json'));
 });
 
 router.post('/', (req, res) => {

@@ -52,8 +52,8 @@ canvas {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  width: 100vw;
-  height: 100vh;
+  width: 100vw; /* Full width view*/
+  height: 100vh; /* Full height view*/
   display: none;
 }
 
@@ -73,6 +73,22 @@ canvas {
   cursor: pointer;
   height: 80vh;
   width: 600px;
+}
+
+#score-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#score-table th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+#score-table th {
+  background-color: rgba(0, 135, 255, 1);
 }
 
 #popup-close {

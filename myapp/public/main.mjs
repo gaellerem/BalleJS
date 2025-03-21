@@ -7,6 +7,7 @@ const stopButton = document.querySelector('#stop');
 const clearButton = document.querySelector('#clear');
 const showScores = document.querySelector('#show-scores');
 const popup = document.querySelector('#popup');
+const scoresTableBody = document.querySelector('#score-tableBody');
 const popupOverlay = document.querySelector('#popup-overlay');
 const popupClose = document.querySelector('#popup-close');
 const spanNombreBalles = document.querySelector('#balls-count');
@@ -59,17 +60,16 @@ showScores.addEventListener('click', function () {
     fetch("/scores")
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
-            popup.innerHTML = "<h2>Scores</h2>";
-            let ul = document.createElement("ul");
-
+            scoresTableBody.innerHTML = ""; // Vide le tableau avant de le remplir
+            // Remplit le tableau avec les données des scores
             data.forEach((score) => {
-                const li = document.createElement("li");
-                li.textContent = `${score.joueur}: ${score.score}`;
-                ul.appendChild(li);
+                let row = scoresTableBody.insertRow();
+                let cell1 = row.insertCell();
+                cell1.textContent = score.joueur;
+                let cell2 = row.insertCell();
+                cell2.textContent = score.score;
             });
 
-            popup.appendChild(ul);
             popupOverlay.style.display = "flex";
         })
         .catch((error) => console.error(error));

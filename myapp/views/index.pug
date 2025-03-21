@@ -1,5 +1,19 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  canvas
+
+  div.controls
+    button#start Start
+    button#stop Stop
+    button#show-scores Scores
+    button#clear Clear
+    p
+      span#balls-count 0
+
+    div#popup-overlay
+      div#popup-container
+        div#popup
+        div#popup-close X
+
+  script(type="module" src="main.mjs")

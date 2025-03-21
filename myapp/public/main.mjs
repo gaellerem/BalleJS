@@ -5,6 +5,10 @@ const canvas = document.querySelector('canvas');
 const startButton = document.querySelector('#start');
 const stopButton = document.querySelector('#stop');
 const clearButton = document.querySelector('#clear');
+const showScores = document.querySelector('#show-scores');
+const popup = document.querySelector('#popup');
+const popupOverlay = document.querySelector('#popup-overlay');
+const popupClose = document.querySelector('#popup-close');
 const spanNombreBalles = document.querySelector('#balls-count');
 
 let nombreInitialDeBalles = 10;
@@ -49,4 +53,28 @@ stopButton.addEventListener('click', function () {
 clearButton.addEventListener('click', function () {
     balles.reinitialiser();
     spanNombreBalles.textContent = balles.nombreBalles;
+});
+
+showScores.addEventListener('click', function () {
+    fetch("/scores")
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            popup.innerHTML = "<h2>Scores</h2>";
+            let ul = document.createElement("ul");
+
+            data.forEach((score) => {
+                const li = document.createElement("li");
+                li.textContent = `${score.joueur}: ${score.score}`;
+                ul.appendChild(li);
+            });
+
+            popup.appendChild(ul);
+            popupOverlay.style.display = "flex";
+        })
+        .catch((error) => console.error(error));
+});
+
+popupClose.addEventListener('click', function () {
+    popupOverlay.style.display = "none";
 });
